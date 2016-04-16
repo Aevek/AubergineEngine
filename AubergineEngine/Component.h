@@ -1,12 +1,14 @@
 #pragma once
-
-class GameObject;
-
-class Component
+namespace AubergineEngine
 {
-public:
-	Component(GameObject* owner);
-	virtual ~Component();
+	class GameObject;
 
-	GameObject *const Owner;
-};
+	class Component
+	{
+	public:
+		Component(GameObject* owner);
+		virtual ~Component();
+
+		GameObject *const Owner;
+	};
+}

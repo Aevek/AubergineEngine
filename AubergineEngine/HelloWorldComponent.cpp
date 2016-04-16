@@ -1,18 +1,21 @@
 #include "stdafx.h"
 #include "HelloWorldComponent.h"
-
-HelloWorldComponent::HelloWorldComponent(GameObject * owner) : Component(owner)
+namespace AubergineEngine
 {
-	//Subscribe to the Update event
-	//When the update event is called, call the OnUpdate function on this
-	Owner->SubscribeEvent<UpdateEvent>(this, &HelloWorldComponent::OnUpdate);
-}
+	HelloWorldComponent::HelloWorldComponent(GameObject * owner) : Component(owner)
+	{
+		//Subscribe to the Update event
+		//When the update event is called, call the OnUpdate function on this
+		Owner->SubscribeEvent<Events::LogicUpdate>(this, &HelloWorldComponent::OnUpdate);
+	}
 
-HelloWorldComponent::~HelloWorldComponent()
-{
-}
+	HelloWorldComponent::~HelloWorldComponent()
+	{
+	}
 
-void HelloWorldComponent::OnUpdate(const UpdateEvent * event)
-{
-	std::cout << "Hello, Aubergine" << std::endl;
+	void AubergineEngine::HelloWorldComponent::OnUpdate(const Events::LogicUpdate * event)
+	{
+		std::cout << "Hello, Aubergine. My name is " << Owner->Name << std::endl;
+		std::cout << "Delta time is " << event->DeltaTime << " time scale is " << event->TimeScale << std::endl;
+	}
 }

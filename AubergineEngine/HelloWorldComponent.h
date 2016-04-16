@@ -1,14 +1,15 @@
 #pragma once
 #include <iostream>
 #include "Component.h"
-
-class UpdateEvent;
-
-class HelloWorldComponent : public Component
+#include "Event.h"
+namespace AubergineEngine
 {
-public:
-	HelloWorldComponent(GameObject* owner);
-	~HelloWorldComponent();
+	class HelloWorldComponent : public Component
+	{
+	public:
+		HelloWorldComponent(GameObject* owner);
+		~HelloWorldComponent();
 
-	void OnUpdate(const UpdateEvent* event);
-};
+		void OnUpdate(const Events::LogicUpdate* event);
+	};
+}

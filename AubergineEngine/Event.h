@@ -1,13 +1,18 @@
 #pragma once
-
-class GameObject;
-
-class Event
+namespace AubergineEngine
 {
-public:
-	Event(GameObject* sender);
-	virtual ~Event();
+	namespace Events
+	{
+		struct Awake
+		{
 
-	//Object that sent this event
-	GameObject * const Sender;
-};
+		};
+
+		struct LogicUpdate
+		{
+			LogicUpdate(double deltaTime, double timeScale = 1) : DeltaTime(deltaTime), TimeScale(timeScale) {};
+			double DeltaTime;
+			double TimeScale;
+		};
+	}
+}

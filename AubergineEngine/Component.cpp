@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "Component.h"
-
-Component::Component(GameObject * owner) : Owner(owner)
+namespace AubergineEngine
 {
-}
+	Component::Component(GameObject * owner) : Owner(owner)
+	{
+	}
 
-Component::~Component()
-{
+	Component::~Component()
+	{
+	}
 }
